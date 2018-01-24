@@ -1,0 +1,18 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Runtime.InteropServices;
+namespace ConsoleApplication1
+{
+    class Program
+    {
+        [DllImport("kernel32.dll", EntryPoint = "SetComputerNameEx")]
+        public static extern int apiSetComputerNameEx(int type, string lpComputerName); 
+        static void Main(string[] args)
+        {
+            int rtn = apiSetComputerNameEx(5, "TestComputerNameModification");
+            System.Console.WriteLine("Computer name set result="+rtn);
+        }
+    }
+}
