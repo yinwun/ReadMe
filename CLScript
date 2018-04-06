@@ -208,6 +208,7 @@ Function TalkNPC(who)
 			LeftClick 1
 			Delay 1000
 			
+			' set 1 to region change
 			XY = Plugin.Pic.FindPic(0, 0, 1024, 768, "Attachment:\CodeWD.bmp", 0, 0.9)
 			iZB = InStr(XY, "|")
 			NPCX = CLng(Left(XY, iZB - 1))
@@ -229,6 +230,7 @@ Function TalkNPC(who)
 	Else 
 		LeftClick 1
 		Delay 1000
+		' set 1 to region change
 		XY = Plugin.Pic.FindPic(0, 0, 1024, 768, "Attachment:\CodeWD.bmp", 0, 0.9)
 		iZB = InStr(XY, "|")
 		NPCX = CLng(Left(XY, iZB - 1))
@@ -639,8 +641,9 @@ Function CheckInputLeiEr
 	Dim result
 	result = 0
 
+	'change to 1
 	LogStart LogPath
-	XY = Plugin.Pic.FindPic(928, 491, 1020, 510, "Attachment:\Flight_Code.bmp", 0, 0.9)
+	XY = Plugin.Pic.FindPic(928, 491, 1020, 510, "Attachment:\Flight_Code.bmp", 0, 1)
 	iZB = InStr(XY, "|")
 	intX = CLng(Left(XY, iZB - 1))
 	intY = CLng(Right(XY, Len(XY) - iZB))
