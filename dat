@@ -1,0 +1,5 @@
+FILE *fp=fopen("c:\\x.dat","rb");
+
+long tmp;
+
+fread(&tmp,sizeof(long),1,fp); //这就是读取一个数据
