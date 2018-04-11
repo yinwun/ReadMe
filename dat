@@ -3,3 +3,39 @@ FILE *fp=fopen("c:\\x.dat","rb");
 long tmp;
 
 fread(&tmp,sizeof(long),1,fp); //这就是读取一个数据
+
+
+{
+	FILE *fp;
+	char filename[255];
+	int fWidth, fHeight, fOffset;
+	int mWidth;
+	int width, height;
+	int fx, fy;
+	int mx, my;
+	int len, len2;
+	int i;
+	int floor;
+	int x1 = 0;
+	int y1 = 0;
+	int x2 = 0;
+	int y2 = 0;
+	unsigned short *tile;
+	unsigned short *parts;
+	unsigned short *event;
+	fOffset = sizeof(int) * 2;
+	
+
+	//sprintf(floorname, "C:\\Working\\Code\\SA\\MAP\\%d.dat", fl);
+	fp = fopen("C:\\Working\\Code\\SA\\MAP\\20032.data", "rb");
+
+	fseek(fp,0, SEEK_SET);
+
+
+	len = ftell(fp);
+
+	fread(&fWidth, sizeof(int), 1, fp);
+	fread(&fHeight, sizeof(int), 1, fp);
+
+	cout << fWidth << endl;
+	cout << fHeight << endl;
