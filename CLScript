@@ -32,12 +32,12 @@ Delay 500
 Call MoveXZTop()
 Rem FindFloor
 
+glPOS = "down"
 is1FL = Check1Floor()
 If is1FL = 1 Then 
 	Call TalkToMo()
 	is1FL = 0
 End If
-
 
 is2FL = Check2Floor()
 If is2FL = 1 Then 
@@ -46,26 +46,37 @@ If is2FL = 1 Then
 End If
 
 
-
 Delay 2000
 Goto FindFloor
 
 EndScript
 
 Function Check1Floor
-	XY = Plugin.Pic.FindPic(315, 150, 470, 460, "Attachment:\1F_LO.bmp", 0, 0.9)
-	iZB = InStr(XY, "|")
-	X = CLng(Left(XY, iZB - 1))
-	Y = CLng(Right(XY, Len(XY) - iZB))
-	
-	If X > 0 And Y > 0 Then 
-		TracePrint "CheckFloor,1F_LO:" & X
-		TracePrint "CheckFloor,1F_LO:" & Y
 		
-		Check1Floor = 1
-	Else 
-		Check1Floor = 0
+	XY1F = Plugin.Pic.FindPic(315, 150, 470, 460, "Attachment:\MO_1F.bmp", 0, 0.9)
+	iZB1F = InStr(XY1F, "|")
+	X1F = CLng(Left(XY1F, iZB1F - 1))
+	Y1F = CLng(Right(XY1F, Len(XY1F) - iZB1F))
+	
+	TracePrint "CheckFloor,X1F:" & X1F
+	TracePrint "CheckFloor,Y1F:" & Y1F
+	
+	If X1F > 0 And Y1F > 0 Then 
+		XY = Plugin.Pic.FindPic(315, 150, 470, 460, "Attachment:\1F_LO.bmp", 0, 0.9)
+		iZB = InStr(XY, "|")
+		X = CLng(Left(XY, iZB - 1))
+		Y = CLng(Right(XY, Len(XY) - iZB))
+		
+		If X > 0 And Y > 0 Then 
+			TracePrint "CheckFloor,1F_LO:" & X
+			TracePrint "CheckFloor,1F_LO:" & Y
+			
+			Check1Floor = 1
+		Else 
+			Check1Floor = 0
+		End If
 	End If
+	
 	
 End Function
 
@@ -86,22 +97,15 @@ Function Check2Floor
 	
 End Function
 
-Function MoveXZTop
-	hwnd = Plugin.WndEx7_71.FindWindow("*", "小子石器外挂*")
-	TracePrint "小子外挂句柄:" & hwnd
-	If hwnd > 0 Then 
-		Plugin.WndEx7_71.MoveWindow hwnd,0,0
-	End If
-	MoveXZTop = hwnd
-End Function
-
 Function TalkToMo
+	LogStart LogPath
 	Call FindMoNPC()
 	Rem ReTalk
 	
 	'Found
+	Delay 1500
 	isSwitch = TalkNPC(1)
-		If isSwitch = 1 Then 
+	If isSwitch = 1 Then 
 		Call PressOK()
 		Delay 1000
 		err = CheckInputMo()
@@ -116,11 +120,13 @@ Function TalkToMo
 		Call PressRun()
 		
 	End If
+	LogStop
 	
 End Function
 
 Function TalkToLeiEr
-	Call FindMoNPC()
+	LogStart LogPath
+	Call FindLeiErNPC()
 	Rem ReTalk
 	Dim err
 	err = 0
@@ -129,7 +135,8 @@ Function TalkToLeiEr
 	If isSwitch = 1 Then 
 		Call PressOK()
 		Delay 1000
-		err = CheckInputLeiEr()
+		'err = CheckInputLeiEr()
+		err = CheckInputMo()
 		If err = 1 Then 
 			Delay 1000
 			Goto ReTalk
@@ -137,10 +144,45 @@ Function TalkToLeiEr
 			Call PressRun()
 		End If
 	Else 
+		'Goto ReTalk
 		Call TalkToLeiEr()
 	End If
+	LogStop
 	
+End Function
+
+Function FindLeiErNPC
+	Dim result
+	Dim canPass
+	Dim isFound
 	
+	result = 0
+	canPass = 0
+	isFound = 0
+	
+	A = ARRAY(303,303,304,259,305,169,20,20,20,20,141)
+	B = ARRAY(308,308,323,305,279,368,310,295,294,310,293) 
+	
+	For i = 0 to 10
+		rls = CheckNPC (isFound)
+		TracePrint "CheckNPC Result:" & rls
+		If rls = 0 Then 
+			'X = 206	
+			'Y = 315
+			TracePrint "FindLeiErNPC i:" & i
+			X = A(i)
+			Y = B(i)
+			TracePrint "FindLeiErNPC X:" & X
+			TracePrint "FindLeiErNPC Y:" & Y
+			Call WalkPal(X, Y)
+			If i = 10 Then 
+				i = 0
+			End If
+		Else 
+			Exit For
+		End If
+		Delay 2000
+	Next
 End Function
 
 Function FindMoNPC
@@ -156,7 +198,7 @@ Function FindMoNPC
 		rls = CheckNPC (isFound)
 		TracePrint "CheckNPC Result:" & rls
 		If rls = 0 Then 
-			X = 206
+			X = 206	
 			Y = 315
 			Call WalkPal(X, Y)
 		Else 
@@ -164,6 +206,86 @@ Function FindMoNPC
 		End If
 	Next
 End Function
+
+Function CheckNPC(isFound)
+	Dim result
+	Dim need2S
+	
+	result = 0
+	need2S = 0
+	
+	XY = Plugin.Pic.FindPic(13, 151, 315, 450, "Attachment:\1_Mo.bmp", 0, 1)
+	iZB = InStr(XY, "|")
+	X = CLng(Left(XY, iZB - 1))
+	Y = CLng(Right(XY, Len(XY) - iZB))
+	
+	
+	If X > 0 And Y > 0 Then 
+		TracePrint "CheckNPC,1_Mo:" & X
+		TracePrint "CheckNPC,1_Mo:" & Y
+		
+		RtColor = Plugin.Color.GetPixelColor(X,Y,0)
+		TracePrint "CheckNPC,RtColor 1_Mo:" & RtColor
+		
+		MoveTo X,Y
+		Delay 1000
+	
+		XY93 = Plugin.Pic.FindPic(315, 150, 470, 460, "Attachment:\NPC_9371.bmp", 0, 1)
+		iZB93 = InStr(XY93, "|")
+		X93 = CLng(Left(XY93, iZB93 - 1))
+		Y93 = CLng(Right(XY93, Len(XY93) - iZB93))
+		
+		TracePrint "CheckNPC,X93:" & X93
+		TracePrint "CheckNPC,Y93:" & Y93
+		
+		If X93 > 0 And Y93 > 0 Then 
+			Call CheckWhetherCanWalk(X, Y)
+
+			result = 1
+			CheckNPC = 1
+			Delay 1000
+		End If	
+		
+	End If
+	
+	If result = 0 Then 
+		XY = Plugin.Pic.FindPic(13, 151, 315, 450, "Attachment:\2_Mo.bmp", 0, 1)
+		iZB = InStr(XY, "|")
+		X = CLng(Left(XY, iZB - 1))
+		Y = CLng(Right(XY, Len(XY) - iZB))
+		If X > 0 And Y > 0 Then 
+			TracePrint "CheckNPC,2_Mo:" & X
+			TracePrint "CheckNPC,2_Mo:" & Y
+			
+			RtColor = Plugin.Color.GetPixelColor(X,Y,0)
+			TracePrint "CheckNPC,RtColor 2_Mo:" & RtColor
+			
+			MoveTo X,Y
+			Delay 1000
+	
+			XY93 = Plugin.Pic.FindPic(315, 150, 470, 460, "Attachment:\NPC_9371.bmp", 0, 1)
+			iZB93 = InStr(XY93, "|")
+			X93 = CLng(Left(XY93, iZB93 - 1))
+			Y93 = CLng(Right(XY93, Len(XY93) - iZB93))
+			
+			TracePrint "CheckNPC,X93:" & X93
+			TracePrint "CheckNPC,Y93:" & Y93
+			
+			If X93 > 0 And Y93 > 0 Then 
+				need2S = CheckWhetherCanWalk(X, Y)
+			
+				result = 1
+				CheckNPC = 1
+			Delay 1000
+			End If
+		
+			
+		End If
+	End If
+	
+	
+End Function
+
 
 Function TalkNPC(who)
 	Dim X
@@ -194,8 +316,7 @@ Function TalkNPC(who)
 			Y = Y - internal
 		End If
 	End If
-	
-	LogStart LogPath
+
 	TracePrint "TalkNPC:" & glPOS
 	TracePrint "TalkNPC X:" & X
 	TracePrint "TalkNPC Y:" & Y
@@ -203,11 +324,11 @@ Function TalkNPC(who)
 	TracePrint "TalkNPC RtColor:" & RtColor
 	
 	MoveTo X,Y
-	Delay 500
+	Delay 1000
 	
 	'1楼摩
 	If who = 1 Then 
-		XY = Plugin.Pic.FindPic(315, 150, 470, 460, "Attachment:\NPC_9371.bmp", 0, 0.9)
+		XY = Plugin.Pic.FindPic(315, 150, 470, 460, "Attachment:\NPC_9371.bmp", 0, 1)
 		iZB = InStr(XY, "|")
 		X9371 = CLng(Left(XY, iZB - 1))
 		Y9371 = CLng(Right(XY, Len(XY) - iZB))
@@ -216,7 +337,6 @@ Function TalkNPC(who)
 		TracePrint "TalkNPC,NPC9371:" & Y9371
 		
 		If X9371 > 0 And Y9371 > 0 Then 
-			Delay 500
 			LeftClick 1
 			Delay 1000
 			
@@ -233,14 +353,27 @@ Function TalkNPC(who)
 				Delay 500
 				Call VerifyCode()
 			Else 
-				TalkNPC = 0
-				MsgBox "找不到对话框"
+				XYMo = Plugin.Pic.FindPic(317, 253, 727, 325, "Attachment:\CodeWD_Mo.bmp", 0, 1)
+				iZBMo = InStr(XYMo, "|")
+				NPCXMo = CLng(Left(XYMo, iZBMo - 1))
+				NPCYMo = CLng(Right(XYMo, Len(XYMo) - iZBMo))
+			
+				TracePrint "TalkNPC,NPCXMo:" & NPCXMo
+				TracePrint "TalkNPC,NPCYMo:" & NPCYMo
+			
+				TalkNPC = 1
+				If NPCXMo > 0 And NPCYMo > 0 Then 
+					Delay 500
+					TalkNPC = 1
+				Else 
+					TalkNPC = 0
+					'MsgBox "找不到对话框"
+				End If
 			End If
 		Else 
 			TalkNPC = 0
 		End If
 	Else 
-		Delay 500
 		LeftClick 1
 		Delay 1000
 		XY = Plugin.Pic.FindPic(317, 253, 716, 286, "Attachment:\CodeWD.bmp", 0, 1)
@@ -257,118 +390,15 @@ Function TalkNPC(who)
 			Call VerifyCode()
 		Else 
 			TalkNPC = 0
+			'MsgBox "找不到对话框"
 		End If
+		 
 		
-	End If
-	LogStop 
-	
-End Function
-
-Function CheckNPC(isFound)
-	Dim result
-	Dim need2S
-	
-	result = 0
-	need2S = 0
-	
-	XY = Plugin.Pic.FindPic(13, 151, 315, 450, "Attachment:\1_Mo.bmp", 0, 1)
-	iZB = InStr(XY, "|")
-	X = CLng(Left(XY, iZB - 1))
-	Y = CLng(Right(XY, Len(XY) - iZB))
-	
-	LogStart LogPath
-	If X > 0 And Y > 0 Then 
-		TracePrint "CheckNPC,2_Mo:" & X
-		TracePrint "CheckNPC,2_Mo:" & Y
-		
-		RtColor = Plugin.Color.GetPixelColor(X,Y,0)
-		TracePrint "CheckNPC,RtColor 2_Mo:" & RtColor
-		
-		result = 1
-		CheckNPC = 1
-		Delay 1000
-	End If
-	
-	If result = 0 Then 
-		XY = Plugin.Pic.FindPic(13, 151, 315, 450, "Attachment:\2_Mo.bmp", 0, 1)
-		iZB = InStr(XY, "|")
-		X = CLng(Left(XY, iZB - 1))
-		Y = CLng(Right(XY, Len(XY) - iZB))
-		If X > 0 And Y > 0 Then 
-			TracePrint "CheckNPC,1_Mo:" & X
-			TracePrint "CheckNPC,1_Mo:" & Y
-			
-			RtColor = Plugin.Color.GetPixelColor(X,Y,0)
-			TracePrint "CheckNPC,RtColor 1_Mo:" & RtColor
-		
-			need2S = CheckWhetherCanWalk(X, Y)
-			
-			result = 1
-			CheckNPC = 1
-			Delay 1000
-		End If
-	End If
-	
-	If result = 1 Then 
-		MoveTo X, Y
-		Delay 1000
-		
-		XYMo9371 = Plugin.Pic.FindPic(315, 150, 470, 460, "Attachment:\NPC_9371.bmp", 0, 1)
-		iZB9371 = InStr(XYMo9371, "|")
-		X9371 = CLng(Left(XYMo9371, iZB - 1))
-		Y9371 = CLng(Right(XYMo9371, Len(XYMo9371) - iZB9371))
-		
-		TracePrint "CheckNPC,NPC9371:" & X9371
-		TracePrint "CheckNPC,NPC9371:" & Y9371
-		
-		If X9371 > 0 And Y9371 > 0 Then 
-			Delay 2000
-			npcFOund = 1
-			Call CheckWhetherCanWalk(X, Y)
-		End If
-		
-		If npcFOund = 0 Then 
-			XYMo9372 = Plugin.Pic.FindPic(315, 150, 470, 460, "Attachment:\Mo_9372.bmp", 0, 1)
-			iZB9372 = InStr(XYMo9372, "|")
-			X9372 = CLng(Left(XYMo9372, iZB - 1))
-			Y9372 = CLng(Right(XYMo9372, Len(XYMo9372) - iZB9372))
-			
-			TracePrint "CheckNPC,NPC9372:" & X9372
-			TracePrint "CheckNPC,NPC9372:" & Y9372
-			
-			If X9372 > 0 And Y9372 > 0 Then 
-				Delay 2000
-				npcFOund = 1
-				Call CheckWhetherCanWalk(X, Y)
-			End If
-		End If
-		
-		If npcFOund = 0 Then 
-			XYMo9373 = Plugin.Pic.FindPic(315, 150, 470, 460, "Attachment:\Mo_9373.bmp", 0, 1)
-			iZB9373 = InStr(XYMo9373, "|")
-			X9373 = CLng(Left(XYMo9373, iZB - 1))
-			Y9373 = CLng(Right(XYMo9373, Len(XYMo9373) - iZB9373))
-			
-			TracePrint "CheckNPC,NPC9373:" & X9373
-			TracePrint "CheckNPC,NPC9373:" & Y9373
-			
-			If X9373 > 0 And Y9373 > 0 Then 
-				Delay 2000
-				npcFOund = 1
-				Call CheckWhetherCanWalk(X, Y)
-			End If
-		End If
-		
-	End If
-		
-	LogStop 
-	
-	
+	End If 
 	
 End Function
 
 Function CheckWhetherCanWalk(X, Y)
-	LogStart LogPath
 	Dim orX
 	Dim orY
 	Dim rightPos
@@ -457,70 +487,79 @@ Function CheckWhetherCanWalk(X, Y)
 		LeftClick 1
 		Delay 1000
 	Else 
-		TracePrint "CheckWhetherCanWalk, Else = 0:" & topPos & "," & downPos
-		If rightPos = 0 Then '右边有阻碍物计算左边
-		 		'右边没有阻碍物计算右边
-				rcX = X
-				rtY = Y - internal
-				rdY = Y + internal
-				For i = 1 To 8 
-					rcX = rcX - internal
-					rightPos = CheckNotRoad(rcX, rY)
-					RtColor = Plugin.Color.GetPixelColor(rcX, rY, 0)
-					TracePrint "CheckWhetherCanWalk RtColor" & RtColor
-					TracePrint "CheckWhetherCanWalk rightPos" & rightPos & " " & rcX & " " & rY
-					Delay 500
-					If rightPos = 1 Then 
-						rightTopPos = CheckNotRoad(rcX, rtY)
-						RtColor = Plugin.Color.GetPixelColor(rcX, rtY, 0)
-						TracePrint "CheckWhetherCanWalk rightTopPos" & rightTopPos
-						TracePrint "CheckWhetherCanWalk RtColor" & RtColor & " " & rcX & " " & rtY 
-					End If
-					If rightTopPos = 1 Then 
-						rightDownPos = CheckNotRoad(rcX, rdY)
-						TracePrint "CheckWhetherCanWalk rightTopPos" & rightDownPos
-						TracePrint "CheckWhetherCanWalk RtColor" & RtColor & " " & rcX & " " & rdY 
-					End If
-					
-					If rightDownPos = 1 Then 
-						rightPos = 1
-						Exit For
-					End If
-				Next
+		'右边没有阻碍物计算右边
+		If rightPos = 0 Then 
+		 	rcX = X
+			rtY = Y - internal
+			rdY = Y + internal
+			For i = 1 To 8 
+				rcX = rcX - internal
+				rightPos = CheckNotRoad(rcX, rY)
+				RtColor = Plugin.Color.GetPixelColor(rcX, rY, 0)
+				TracePrint "CheckWhetherCanWalk RtColor:" & RtColor
+				TracePrint "CheckWhetherCanWalk rightPos:" & rightPos & " " & rcX & " " & rY
+				Delay 500
+				rightTopPos = CheckNotRoad(rcX, rtY)
+				RtColor = Plugin.Color.GetPixelColor(rcX, rtY, 0)
+				TracePrint "CheckWhetherCanWalk rightTopPos:" & rightTopPos
+				TracePrint "CheckWhetherCanWalk RtColor:" & RtColor & " " & rcX & " " & rtY
 				
+				If rightTopPos = 1 Then 
+					rightDownPos = CheckNotRoad(rcX, rdY)
+					TracePrint "CheckWhetherCanWalk rightTopPos:" & rightDownPos
+					TracePrint "CheckWhetherCanWalk RtColor:" & RtColor & " " & rcX & " " & rdY
+				Else 
+					rightPos = 0 
+					Exit For
+				End If
 				
+				If rightDownPos = 0 Then 
+					rightPos = 0 
+					Exit For	
+				End If
+				
+			Next
+			
+			If rightDownPos = 1 Then 
+				rightPos = 1 	
+			End If 
 		End If
-		If leftPos = 0 Then
-			lcX = X
+		'左边没有阻碍物计算右边左
+		If leftPos = 0 Then 
+		 	lcX = X
 			ltY = Y - internal
 			ldY = Y + internal
-			For i = 1 To 9 
+			For i = 1 To 18
 				lcX = lcX - internal
 				leftPos = CheckNotRoad(lcX, lY)
 				RtColor = Plugin.Color.GetPixelColor(lcX, lY, 0)
-				TracePrint "CheckWhetherCanWalk RtColor" & RtColor
-				TracePrint "CheckWhetherCanWalk leftPos" & leftPos & " " & lcX & " " & lY
+				TracePrint "CheckWhetherCanWalk LtColor:" & RtColor
+				TracePrint "CheckWhetherCanWalk leftPos:" & leftPos & " " & lcX & " " & lY
 				Delay 500
-				If leftPos = 1 Then 
-					lefToptPos = CheckNotRoad(lcX, ltY)
-					RtColor = Plugin.Color.GetPixelColor(lcX, ltY, 0)
-					TracePrint "CheckWhetherCanWalk lefToptPos" & lefToptPos
-					TracePrint "CheckWhetherCanWalk RtColor" & RtColor & " " & lcX & " " & ltY
-				End If
+				lefToptPos = CheckNotRoad(lcX, ltY)
+				RtColor = Plugin.Color.GetPixelColor(lcX, ltY, 0)
+				TracePrint "CheckWhetherCanWalk lefToptPos:" & lefToptPos
+				TracePrint "CheckWhetherCanWalk LtColor:" & RtColor & " " & lcX & " " & ltY
+				
 				If lefToptPos = 1 Then 
 					lefDwontPos = CheckNotRoad(lcX, ldY)
 					RtColor = Plugin.Color.GetPixelColor(lcX, ldY, 0)
-					TracePrint "CheckWhetherCanWalk lefDwontPos" & lefDwontPos
-					TracePrint "CheckWhetherCanWalk RtColor" & RtColor & RtColor & " " & lcX & " " & ldY 
+					TracePrint "CheckWhetherCanWalk lefDwontPos:" & lefDwontPos
+					TracePrint "CheckWhetherCanWalk LtColor:" & RtColor & " " & lcX & " " & ldY
+				Else 
+					leftPos = 0 
+					Exit For
 				End If
 				
-				If lefDwontPos = 1 Then 
-					leftPos = 1
-					Exit For
+				If lefDwontPos = 0 Then 
+					leftPos = 0 
+					Exit For	
 				End If
 			Next
 			
-			
+			If lefDwontPos = 1 Then 
+				leftPos = 1 	
+			End If
 		End If
 		
 		If leftPos = 1 And rightPos = 1 Then 
@@ -531,6 +570,7 @@ Function CheckWhetherCanWalk(X, Y)
 		ElseIf leftPos = 0 Then
 		'左边没阻碍物
 			TracePrint "CheckWhetherCanWalk, 左边没阻碍物:" & lX & "," & lY
+			s2S = 0
 			X = lX
 			Y = lY
 			glPOS = "left"
@@ -540,7 +580,8 @@ Function CheckWhetherCanWalk(X, Y)
 			Delay 1000
 		ElseIf rightPos = 0 Then
 		'右边没阻碍物
-			TracePrint "CheckWhetherCanWalk, 左边没阻碍物:" & lX & "," & lY
+			TracePrint "CheckWhetherCanWalk, 右边没阻碍物:" & rX & "," & rY
+			s2S = 0
 			X = rX
 			Y = rY
 			glPOS = "right"
@@ -555,8 +596,6 @@ Function CheckWhetherCanWalk(X, Y)
 		End If
 	End If
 	
-	LogStop
-	
 End Function
 
 Function CheckNotRoad(X, Y)
@@ -565,7 +604,8 @@ Function CheckNotRoad(X, Y)
 	RtColor = Plugin.Color.GetPixelColor(X,Y,0)
 	
 	'If RtColor = "D6BE94" Then 
-	If not( RtColor = "000000") And not (RtColor = "104984") And not (RtColor = "F0F0F0") Then 
+	TracePrint "CheckNotRoad, RtColor:" & RtColor
+	If not( RtColor = "000000")  And not (RtColor = "C2B5C0") And not (RtColor = "104984") And not (RtColor = "F0F0F0")  And not (RtColor = "FFFFFF") And not (RtColor = "FFE0C8") And not (RtColor = "F0D8C0") And not (RtColor = "104984") Then
 		isNotRoad = 0
 	Else 
 		isNotRoad = 1
@@ -659,11 +699,10 @@ Function WalkPal(X, Y)
 	If not( RtColor = "000000") And not (RtColor = "104984") Then 
 		canPass = 1
 		MoveTo X,Y
-		Delay 200
+		Delay 300
 		LeftClick 1
-		Delay 200
-		MoveTo selfX, selfY
-		Delay 100
+		Delay 300
+		MoveTo selfX,selfY
 	Else 
 		Y = Y + internal
 		'TracePrint X
@@ -742,7 +781,7 @@ Function CheckInputLeiEr
 	Dim result
 	result = 0
 
-	LogStart LogPath
+	
 	XY = Plugin.Pic.FindPic(21, 593, 229, 612, "Attachment:\Flight_Code.bmp", 0, 1)
 	iZB = InStr(XY, "|")
 	intX = CLng(Left(XY, iZB - 1))
@@ -756,7 +795,7 @@ Function CheckInputLeiEr
 	Else 
 		result = 1
 	End If
-	LogStop
+	
 	CheckInputLeiEr = result
 
 End Function
@@ -794,15 +833,18 @@ Function CheckInputMo
 		End If
 	End If
 	
-	TracePrint "CheckInputMo:" & glPOS
 	TracePrint "CheckInputMo X:" & X
 	TracePrint "CheckInputMo Y:" & Y
 	
 	MoveTo X,Y
 	Delay 1000
 	
-	'1楼摩
-		XY = Plugin.Pic.FindPic(315, 150, 470, 460, "Attachment:\NPC_9371.bmp", 0, 1)
+	RtColor = Plugin.Color.GetPixelColor(X,Y,0)
+	
+	'If RtColor = "D6BE94" Then 
+	TracePrint "CheckInputMo RtColor:" & RtColor
+	If not (RtColor = "000000")  And not (RtColor = "104984") And not (RtColor = "F0F0F0") And not (RtColor = "000000")  Then 
+		XY = Plugin.Pic.FindPic(315, 150, 470, 460, "Attachment:\NPC_9371.bmp", 0, 0.9)
 		iZB = InStr(XY, "|")
 		X9371 = CLng(Left(XY, iZB - 1))
 		Y9371 = CLng(Right(XY, Len(XY) - iZB))
@@ -815,9 +857,19 @@ Function CheckInputMo
 		Else 
 			result = 0
 		End If
-        CheckInputMo=result
+    Else 
+    	result = 0
+	End If
+	
+	 CheckInputMo=result
+	
+	'1楼摩
+		
 	
 End Function
+
+
+
 
 
 Function PressRun
@@ -833,9 +885,12 @@ Function PressRun
 		MoveTo intX, intY
 		Delay 1000	
 		LeftClick 1
-
+		Delay 1000
+		MoveTo 0, 0
 	Else 
-		MsgBox "手动按继续"
+		MoveTo 0, 0
+		Delay 1000
+		Call PressRun()
 	End If
 End Function
 
@@ -853,3 +908,12 @@ Sub Register_dm
  	ver = dm.Ver()
 	TracePrint dm.ver()
 End Sub
+
+Function MoveXZTop
+	hwnd = Plugin.WndEx7_71.FindWindow("*", "小子石器外挂*")
+	TracePrint "小子外挂句柄:" & hwnd
+	If hwnd > 0 Then 
+		Plugin.WndEx7_71.MoveWindow hwnd,0,0
+	End If
+	MoveXZTop = hwnd
+End Function
