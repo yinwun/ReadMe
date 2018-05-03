@@ -1,0 +1,289 @@
+218.92.70.126
+pbvo2497
+123456线程	时间	脚本位置	消息
+0	14:02:49		启动脚本：CL_C.Q，创建线程：556
+556	14:02:50	CL_C.Q，第168行：	CheckNPC Result:
+556	14:02:50	CL_C.Q，第172行：	FindLeiErNPC i:0
+556	14:02:50	CL_C.Q，第175行：	FindLeiErNPC X:303
+556	14:02:50	CL_C.Q，第176行：	FindLeiErNPC Y:308
+556	14:02:50	CL_C.Q，第703行：	D6BE94
+556	14:02:53	CL_C.Q，第168行：	CheckNPC Result:
+556	14:02:53	CL_C.Q，第172行：	FindLeiErNPC i:1
+556	14:02:53	CL_C.Q，第175行：	FindLeiErNPC X:303
+556	14:02:53	CL_C.Q，第176行：	FindLeiErNPC Y:308
+556	14:02:53	CL_C.Q，第703行：	D6BE94
+556	14:02:56	CL_C.Q，第168行：	CheckNPC Result:
+556	14:02:56	CL_C.Q，第172行：	FindLeiErNPC i:2
+556	14:02:56	CL_C.Q，第175行：	FindLeiErNPC X:304
+556	14:02:56	CL_C.Q，第176行：	FindLeiErNPC Y:323
+556	14:02:56	CL_C.Q，第703行：	D6BE94
+556	14:02:59	CL_C.Q，第168行：	CheckNPC Result:
+556	14:02:59	CL_C.Q，第172行：	FindLeiErNPC i:3
+556	14:02:59	CL_C.Q，第175行：	FindLeiErNPC X:259
+556	14:02:59	CL_C.Q，第176行：	FindLeiErNPC Y:305
+556	14:02:59	CL_C.Q，第703行：	D6BE94
+556	14:03:02	CL_C.Q，第224行：	CheckNPC,1_Mo:283
+556	14:03:02	CL_C.Q，第225行：	CheckNPC,1_Mo:302
+556	14:03:02	CL_C.Q，第228行：	CheckNPC,RtColor 1_Mo:767B3D
+556	14:03:03	CL_C.Q，第238行：	CheckNPC,X93:365
+556	14:03:03	CL_C.Q，第239行：	CheckNPC,Y93:377
+556	14:03:03	CL_C.Q，第613行：	CheckNotRoad, RtColor:D6BE94
+556	14:03:03	CL_C.Q，第613行：	CheckNotRoad, RtColor:D6BE94
+556	14:03:03	CL_C.Q，第613行：	CheckNotRoad, RtColor:104984
+556	14:03:03	CL_C.Q，第613行：	CheckNotRoad, RtColor:104984
+556	14:03:03	CL_C.Q，第613行：	CheckNotRoad, RtColor:D6BE94
+556	14:03:03	CL_C.Q，第499行：	CheckWhetherCanWalk RtColor:D6BE94
+556	14:03:03	CL_C.Q，第500行：	CheckWhetherCanWalk rightPos:0 268 302
+556	14:03:03	CL_C.Q，第613行：	CheckNotRoad, RtColor:104984
+556	14:03:03	CL_C.Q，第504行：	CheckWhetherCanWalk rightTopPos:1
+556	14:03:03	CL_C.Q，第505行：	CheckWhetherCanWalk RtColor:104984 268 287
+556	14:03:04	CL_C.Q，第613行：	CheckNotRoad, RtColor:104984
+556	14:03:04	CL_C.Q，第509行：	CheckWhetherCanWalk rightTopPos:1
+556	14:03:04	CL_C.Q，第510行：	CheckWhetherCanWalk RtColor:104984 268 317
+556	14:03:04	CL_C.Q，第613行：	CheckNotRoad, RtColor:D6BE94
+556	14:03:04	CL_C.Q，第499行：	CheckWhetherCanWalk RtColor:D6BE94
+556	14:03:04	CL_C.Q，第500行：	CheckWhetherCanWalk rightPos:0 253 302
+556	14:03:04	CL_C.Q，第613行：	CheckNotRoad, RtColor:104984
+556	14:03:04	CL_C.Q，第504行：	CheckWhetherCanWalk rightTopPos:1
+556	14:03:04	CL_C.Q，第505行：	CheckWhetherCanWalk RtColor:104984 253 287
+556	14:03:04	CL_C.Q，第613行：	CheckNotRoad, RtColor:104984
+556	14:03:04	CL_C.Q，第509行：	CheckWhetherCanWalk rightTopPos:1
+556	14:03:04	CL_C.Q，第510行：	CheckWhetherCanWalk RtColor:104984 253 317
+556	14:03:04	CL_C.Q，第613行：	CheckNotRoad, RtColor:D6BE94
+556	14:03:04	CL_C.Q，第499行：	CheckWhetherCanWalk RtColor:D6BE94
+556	14:03:04	CL_C.Q，第500行：	CheckWhetherCanWalk rightPos:0 238 302
+556	14:03:05	CL_C.Q，第613行：	CheckNotRoad, RtColor:104984
+556	14:03:05	CL_C.Q，第504行：	CheckWhetherCanWalk rightTopPos:1
+556	14:03:05	CL_C.Q，第505行：	CheckWhetherCanWalk RtColor:104984 238 287
+556	14:03:05	CL_C.Q，第613行：	CheckNotRoad, RtColor:104984
+556	14:03:05	CL_C.Q，第509行：	CheckWhetherCanWalk rightTopPos:1
+556	14:03:05	CL_C.Q，第510行：	CheckWhetherCanWalk RtColor:104984 238 317
+556	14:03:05	CL_C.Q，第613行：	CheckNotRoad, RtColor:D6BE94
+556	14:03:05	CL_C.Q，第499行：	CheckWhetherCanWalk RtColor:D6BE94
+556	14:03:05	CL_C.Q，第500行：	CheckWhetherCanWalk rightPos:0 223 302
+556	14:03:05	CL_C.Q，第613行：	CheckNotRoad, RtColor:104984
+556	14:03:05	CL_C.Q，第504行：	CheckWhetherCanWalk rightTopPos:1
+556	14:03:05	CL_C.Q，第505行：	CheckWhetherCanWalk RtColor:104984 223 287
+556	14:03:05	CL_C.Q，第613行：	CheckNotRoad, RtColor:104984
+556	14:03:05	CL_C.Q，第509行：	CheckWhetherCanWalk rightTopPos:1
+556	14:03:05	CL_C.Q，第510行：	CheckWhetherCanWalk RtColor:104984 223 317
+556	14:03:05	CL_C.Q，第613行：	CheckNotRoad, RtColor:D6BE94
+556	14:03:05	CL_C.Q，第499行：	CheckWhetherCanWalk RtColor:D6BE94
+556	14:03:05	CL_C.Q，第500行：	CheckWhetherCanWalk rightPos:0 208 302
+556	14:03:06	CL_C.Q，第613行：	CheckNotRoad, RtColor:104984
+556	14:03:06	CL_C.Q，第504行：	CheckWhetherCanWalk rightTopPos:1
+556	14:03:06	CL_C.Q，第505行：	CheckWhetherCanWalk RtColor:104984 208 287
+556	14:03:06	CL_C.Q，第613行：	CheckNotRoad, RtColor:104984
+556	14:03:06	CL_C.Q，第509行：	CheckWhetherCanWalk rightTopPos:1
+556	14:03:06	CL_C.Q，第510行：	CheckWhetherCanWalk RtColor:104984 208 317
+556	14:03:06	CL_C.Q，第613行：	CheckNotRoad, RtColor:D6BE94
+556	14:03:06	CL_C.Q，第499行：	CheckWhetherCanWalk RtColor:D6BE94
+556	14:03:06	CL_C.Q，第500行：	CheckWhetherCanWalk rightPos:0 193 302
+556	14:03:07	CL_C.Q，第613行：	CheckNotRoad, RtColor:104984
+556	14:03:07	CL_C.Q，第504行：	CheckWhetherCanWalk rightTopPos:1
+556	14:03:07	CL_C.Q，第505行：	CheckWhetherCanWalk RtColor:104984 193 287
+556	14:03:07	CL_C.Q，第613行：	CheckNotRoad, RtColor:104984
+556	14:03:07	CL_C.Q，第509行：	CheckWhetherCanWalk rightTopPos:1
+556	14:03:07	CL_C.Q，第510行：	CheckWhetherCanWalk RtColor:104984 193 317
+556	14:03:07	CL_C.Q，第613行：	CheckNotRoad, RtColor:104984
+556	14:03:07	CL_C.Q，第499行：	CheckWhetherCanWalk RtColor:104984
+556	14:03:07	CL_C.Q，第500行：	CheckWhetherCanWalk rightPos:1 178 302
+556	14:03:07	CL_C.Q，第613行：	CheckNotRoad, RtColor:104984
+556	14:03:07	CL_C.Q，第504行：	CheckWhetherCanWalk rightTopPos:1
+556	14:03:07	CL_C.Q，第505行：	CheckWhetherCanWalk RtColor:104984 178 287
+556	14:03:07	CL_C.Q，第613行：	CheckNotRoad, RtColor:104984
+556	14:03:07	CL_C.Q，第509行：	CheckWhetherCanWalk rightTopPos:1
+556	14:03:07	CL_C.Q，第510行：	CheckWhetherCanWalk RtColor:104984 178 317
+556	14:03:07	CL_C.Q，第613行：	CheckNotRoad, RtColor:0000FF
+556	14:03:07	CL_C.Q，第499行：	CheckWhetherCanWalk RtColor:0000FF
+556	14:03:07	CL_C.Q，第500行：	CheckWhetherCanWalk rightPos:0 163 302
+556	14:03:08	CL_C.Q，第613行：	CheckNotRoad, RtColor:D6BE94
+556	14:03:08	CL_C.Q，第504行：	CheckWhetherCanWalk rightTopPos:0
+556	14:03:08	CL_C.Q，第505行：	CheckWhetherCanWalk RtColor:D6BE94 163 287
+556	14:03:08	CL_C.Q，第613行：	CheckNotRoad, RtColor:D6BE94
+556	14:03:08	CL_C.Q，第539行：	CheckWhetherCanWalk LtColor:D6BE94
+556	14:03:08	CL_C.Q，第540行：	CheckWhetherCanWalk leftPos:0 268 302
+556	14:03:08	CL_C.Q，第613行：	CheckNotRoad, RtColor:104984
+556	14:03:08	CL_C.Q，第544行：	CheckWhetherCanWalk lefToptPos:1
+556	14:03:08	CL_C.Q，第545行：	CheckWhetherCanWalk LtColor:104984 268 287
+556	14:03:08	CL_C.Q，第613行：	CheckNotRoad, RtColor:104984
+556	14:03:08	CL_C.Q，第550行：	CheckWhetherCanWalk lefDwontPos:1
+556	14:03:08	CL_C.Q，第551行：	CheckWhetherCanWalk LtColor:104984 268 317
+556	14:03:08	CL_C.Q，第613行：	CheckNotRoad, RtColor:D6BE94
+556	14:03:09	CL_C.Q，第539行：	CheckWhetherCanWalk LtColor:D6BE94
+556	14:03:09	CL_C.Q，第540行：	CheckWhetherCanWalk leftPos:0 253 302
+556	14:03:09	CL_C.Q，第613行：	CheckNotRoad, RtColor:104984
+556	14:03:09	CL_C.Q，第544行：	CheckWhetherCanWalk lefToptPos:1
+556	14:03:09	CL_C.Q，第545行：	CheckWhetherCanWalk LtColor:104984 253 287
+556	14:03:09	CL_C.Q，第613行：	CheckNotRoad, RtColor:104984
+556	14:03:09	CL_C.Q，第550行：	CheckWhetherCanWalk lefDwontPos:1
+556	14:03:09	CL_C.Q，第551行：	CheckWhetherCanWalk LtColor:104984 253 317
+556	14:03:09	CL_C.Q，第613行：	CheckNotRoad, RtColor:D6BE94
+556	14:03:09	CL_C.Q，第539行：	CheckWhetherCanWalk LtColor:D6BE94
+556	14:03:09	CL_C.Q，第540行：	CheckWhetherCanWalk leftPos:0 238 302
+556	14:03:10	CL_C.Q，第613行：	CheckNotRoad, RtColor:104984
+556	14:03:10	CL_C.Q，第544行：	CheckWhetherCanWalk lefToptPos:1
+556	14:03:10	CL_C.Q，第545行：	CheckWhetherCanWalk LtColor:104984 238 287
+556	14:03:10	CL_C.Q，第613行：	CheckNotRoad, RtColor:104984
+556	14:03:10	CL_C.Q，第550行：	CheckWhetherCanWalk lefDwontPos:1
+556	14:03:10	CL_C.Q，第551行：	CheckWhetherCanWalk LtColor:104984 238 317
+556	14:03:10	CL_C.Q，第613行：	CheckNotRoad, RtColor:D6BE94
+556	14:03:10	CL_C.Q，第539行：	CheckWhetherCanWalk LtColor:D6BE94
+556	14:03:10	CL_C.Q，第540行：	CheckWhetherCanWalk leftPos:0 223 302
+556	14:03:10	CL_C.Q，第613行：	CheckNotRoad, RtColor:104984
+556	14:03:10	CL_C.Q，第544行：	CheckWhetherCanWalk lefToptPos:1
+556	14:03:10	CL_C.Q，第545行：	CheckWhetherCanWalk LtColor:104984 223 287
+556	14:03:10	CL_C.Q，第613行：	CheckNotRoad, RtColor:104984
+556	14:03:10	CL_C.Q，第550行：	CheckWhetherCanWalk lefDwontPos:1
+556	14:03:10	CL_C.Q，第551行：	CheckWhetherCanWalk LtColor:104984 223 317
+556	14:03:10	CL_C.Q，第613行：	CheckNotRoad, RtColor:D6BE94
+556	14:03:10	CL_C.Q，第539行：	CheckWhetherCanWalk LtColor:D6BE94
+556	14:03:10	CL_C.Q，第540行：	CheckWhetherCanWalk leftPos:0 208 302
+556	14:03:11	CL_C.Q，第613行：	CheckNotRoad, RtColor:104984
+556	14:03:11	CL_C.Q，第544行：	CheckWhetherCanWalk lefToptPos:1
+556	14:03:11	CL_C.Q，第545行：	CheckWhetherCanWalk LtColor:104984 208 287
+556	14:03:11	CL_C.Q，第613行：	CheckNotRoad, RtColor:104984
+556	14:03:11	CL_C.Q，第550行：	CheckWhetherCanWalk lefDwontPos:1
+556	14:03:11	CL_C.Q，第551行：	CheckWhetherCanWalk LtColor:104984 208 317
+556	14:03:11	CL_C.Q，第613行：	CheckNotRoad, RtColor:D6BE94
+556	14:03:11	CL_C.Q，第539行：	CheckWhetherCanWalk LtColor:D6BE94
+556	14:03:11	CL_C.Q，第540行：	CheckWhetherCanWalk leftPos:0 193 302
+556	14:03:12	CL_C.Q，第613行：	CheckNotRoad, RtColor:104984
+556	14:03:12	CL_C.Q，第544行：	CheckWhetherCanWalk lefToptPos:1
+556	14:03:12	CL_C.Q，第545行：	CheckWhetherCanWalk LtColor:104984 193 287
+556	14:03:12	CL_C.Q，第613行：	CheckNotRoad, RtColor:104984
+556	14:03:12	CL_C.Q，第550行：	CheckWhetherCanWalk lefDwontPos:1
+556	14:03:12	CL_C.Q，第551行：	CheckWhetherCanWalk LtColor:104984 193 317
+556	14:03:12	CL_C.Q，第613行：	CheckNotRoad, RtColor:104984
+556	14:03:12	CL_C.Q，第539行：	CheckWhetherCanWalk LtColor:104984
+556	14:03:12	CL_C.Q，第540行：	CheckWhetherCanWalk leftPos:1 178 302
+556	14:03:12	CL_C.Q，第613行：	CheckNotRoad, RtColor:104984
+556	14:03:12	CL_C.Q，第544行：	CheckWhetherCanWalk lefToptPos:1
+556	14:03:12	CL_C.Q，第545行：	CheckWhetherCanWalk LtColor:104984 178 287
+556	14:03:12	CL_C.Q，第613行：	CheckNotRoad, RtColor:104984
+556	14:03:12	CL_C.Q，第550行：	CheckWhetherCanWalk lefDwontPos:1
+556	14:03:12	CL_C.Q，第551行：	CheckWhetherCanWalk LtColor:104984 178 317
+556	14:03:12	CL_C.Q，第613行：	CheckNotRoad, RtColor:0000FF
+556	14:03:12	CL_C.Q，第539行：	CheckWhetherCanWalk LtColor:0000FF
+556	14:03:12	CL_C.Q，第540行：	CheckWhetherCanWalk leftPos:0 163 302
+556	14:03:13	CL_C.Q，第613行：	CheckNotRoad, RtColor:D6BE94
+556	14:03:13	CL_C.Q，第544行：	CheckWhetherCanWalk lefToptPos:0
+556	14:03:13	CL_C.Q，第545行：	CheckWhetherCanWalk LtColor:D6BE94 163 287
+556	14:03:13	CL_C.Q，第578行：	CheckWhetherCanWalk, 左边没阻碍物:268,302
+556	14:03:16	CL_C.Q，第168行：	CheckNPC Result:1
+556	14:03:16	CL_C.Q，第297行：	s2S:0
+556	14:03:16	CL_C.Q，第320行：	TalkNPC:left
+556	14:03:16	CL_C.Q，第321行：	TalkNPC X:191
+556	14:03:16	CL_C.Q，第322行：	TalkNPC Y:315
+556	14:03:16	CL_C.Q，第324行：	TalkNPC RtColor:104984
+556	14:03:18	CL_C.Q，第384行：	TalkNPC,NPCX:-1
+556	14:03:18	CL_C.Q，第385行：	TalkNPC,NPCY:-1
+556	14:03:18	CL_C.Q，第224行：	CheckNPC,1_Mo:283
+556	14:03:18	CL_C.Q，第225行：	CheckNPC,1_Mo:302
+556	14:03:18	CL_C.Q，第228行：	CheckNPC,RtColor 1_Mo:767B3D
+556	14:03:19	CL_C.Q，第238行：	CheckNPC,X93:365
+556	14:03:19	CL_C.Q，第239行：	CheckNPC,Y93:377
+556	14:03:19	CL_C.Q，第613行：	CheckNotRoad, RtColor:D6BE94
+556	14:03:19	CL_C.Q，第613行：	CheckNotRoad, RtColor:D6BE94
+556	14:03:19	CL_C.Q，第613行：	CheckNotRoad, RtColor:104984
+556	14:03:19	CL_C.Q，第613行：	CheckNotRoad, RtColor:104984
+556	14:03:19	CL_C.Q，第613行：	CheckNotRoad, RtColor:D6BE94
+556	14:03:19	CL_C.Q，第499行：	CheckWhetherCanWalk RtColor:D6BE94
+556	14:03:19	CL_C.Q，第500行：	CheckWhetherCanWalk rightPos:0 268 302
+556	14:03:20	CL_C.Q，第613行：	CheckNotRoad, RtColor:104984
+556	14:03:20	CL_C.Q，第504行：	CheckWhetherCanWalk rightTopPos:1
+556	14:03:20	CL_C.Q，第505行：	CheckWhetherCanWalk RtColor:104984 268 287
+556	14:03:20	CL_C.Q，第613行：	CheckNotRoad, RtColor:104984
+556	14:03:20	CL_C.Q，第509行：	CheckWhetherCanWalk rightTopPos:1
+556	14:03:20	CL_C.Q，第510行：	CheckWhetherCanWalk RtColor:104984 268 317
+556	14:03:20	CL_C.Q，第613行：	CheckNotRoad, RtColor:D6BE94
+556	14:03:20	CL_C.Q，第499行：	CheckWhetherCanWalk RtColor:D6BE94
+556	14:03:20	CL_C.Q，第500行：	CheckWhetherCanWalk rightPos:0 253 302
+556	14:03:20	CL_C.Q，第613行：	CheckNotRoad, RtColor:104984
+556	14:03:20	CL_C.Q，第504行：	CheckWhetherCanWalk rightTopPos:1
+556	14:03:20	CL_C.Q，第505行：	CheckWhetherCanWalk RtColor:104984 253 287
+556	14:03:20	CL_C.Q，第613行：	CheckNotRoad, RtColor:104984
+556	14:03:20	CL_C.Q，第509行：	CheckWhetherCanWalk rightTopPos:1
+556	14:03:20	CL_C.Q，第510行：	CheckWhetherCanWalk RtColor:104984 253 317
+556	14:03:20	CL_C.Q，第613行：	CheckNotRoad, RtColor:D6BE94
+556	14:03:20	CL_C.Q，第499行：	CheckWhetherCanWalk RtColor:D6BE94
+556	14:03:20	CL_C.Q，第500行：	CheckWhetherCanWalk rightPos:0 238 302
+556	14:03:21	CL_C.Q，第613行：	CheckNotRoad, RtColor:104984
+556	14:03:21	CL_C.Q，第504行：	CheckWhetherCanWalk rightTopPos:1
+556	14:03:21	CL_C.Q，第505行：	CheckWhetherCanWalk RtColor:104984 238 287
+556	14:03:21	CL_C.Q，第613行：	CheckNotRoad, RtColor:104984
+556	14:03:21	CL_C.Q，第509行：	CheckWhetherCanWalk rightTopPos:1
+556	14:03:21	CL_C.Q，第510行：	CheckWhetherCanWalk RtColor:104984 238 317
+556	14:03:21	CL_C.Q，第613行：	CheckNotRoad, RtColor:D6BE94
+556	14:03:21	CL_C.Q，第499行：	CheckWhetherCanWalk RtColor:D6BE94
+556	14:03:21	CL_C.Q，第500行：	CheckWhetherCanWalk rightPos:0 223 302
+556	14:03:21	CL_C.Q，第613行：	CheckNotRoad, RtColor:104984
+556	14:03:21	CL_C.Q，第504行：	CheckWhetherCanWalk rightTopPos:1
+556	14:03:21	CL_C.Q，第505行：	CheckWhetherCanWalk RtColor:104984 223 287
+556	14:03:21	CL_C.Q，第613行：	CheckNotRoad, RtColor:104984
+556	14:03:21	CL_C.Q，第509行：	CheckWhetherCanWalk rightTopPos:1
+556	14:03:21	CL_C.Q，第510行：	CheckWhetherCanWalk RtColor:104984 223 317
+556	14:03:21	CL_C.Q，第613行：	CheckNotRoad, RtColor:D6BE94
+556	14:03:21	CL_C.Q，第499行：	CheckWhetherCanWalk RtColor:D6BE94
+556	14:03:21	CL_C.Q，第500行：	CheckWhetherCanWalk rightPos:0 208 302
+556	14:03:22	CL_C.Q，第613行：	CheckNotRoad, RtColor:104984
+556	14:03:22	CL_C.Q，第504行：	CheckWhetherCanWalk rightTopPos:1
+556	14:03:22	CL_C.Q，第505行：	CheckWhetherCanWalk RtColor:104984 208 287
+556	14:03:22	CL_C.Q，第613行：	CheckNotRoad, RtColor:104984
+556	14:03:22	CL_C.Q，第509行：	CheckWhetherCanWalk rightTopPos:1
+556	14:03:22	CL_C.Q，第510行：	CheckWhetherCanWalk RtColor:104984 208 317
+556	14:03:22	CL_C.Q，第613行：	CheckNotRoad, RtColor:D6BE94
+556	14:03:22	CL_C.Q，第499行：	CheckWhetherCanWalk RtColor:D6BE94
+556	14:03:22	CL_C.Q，第500行：	CheckWhetherCanWalk rightPos:0 193 302
+556	14:03:23	CL_C.Q，第613行：	CheckNotRoad, RtColor:104984
+556	14:03:23	CL_C.Q，第504行：	CheckWhetherCanWalk rightTopPos:1
+556	14:03:23	CL_C.Q，第505行：	CheckWhetherCanWalk RtColor:104984 193 287
+556	14:03:23	CL_C.Q，第613行：	CheckNotRoad, RtColor:104984
+556	14:03:23	CL_C.Q，第509行：	CheckWhetherCanWalk rightTopPos:1
+556	14:03:23	CL_C.Q，第510行：	CheckWhetherCanWalk RtColor:104984 193 317
+556	14:03:23	CL_C.Q，第613行：	CheckNotRoad, RtColor:104984
+556	14:03:23	CL_C.Q，第499行：	CheckWhetherCanWalk RtColor:104984
+556	14:03:23	CL_C.Q，第500行：	CheckWhetherCanWalk rightPos:1 178 302
+556	14:03:23	CL_C.Q，第613行：	CheckNotRoad, RtColor:104984
+556	14:03:23	CL_C.Q，第504行：	CheckWhetherCanWalk rightTopPos:1
+556	14:03:23	CL_C.Q，第505行：	CheckWhetherCanWalk RtColor:104984 178 287
+556	14:03:23	CL_C.Q，第613行：	CheckNotRoad, RtColor:104984
+556	14:03:23	CL_C.Q，第509行：	CheckWhetherCanWalk rightTopPos:1
+556	14:03:23	CL_C.Q，第510行：	CheckWhetherCanWalk RtColor:104984 178 317
+556	14:03:23	CL_C.Q，第613行：	CheckNotRoad, RtColor:0000FF
+556	14:03:23	CL_C.Q，第499行：	CheckWhetherCanWalk RtColor:0000FF
+556	14:03:23	CL_C.Q，第500行：	CheckWhetherCanWalk rightPos:0 163 302
+556	14:03:24	CL_C.Q，第613行：	CheckNotRoad, RtColor:D6BE94
+556	14:03:24	CL_C.Q，第504行：	CheckWhetherCanWalk rightTopPos:0
+556	14:03:24	CL_C.Q，第505行：	CheckWhetherCanWalk RtColor:D6BE94 163 287
+556	14:03:24	CL_C.Q，第613行：	CheckNotRoad, RtColor:D6BE94
+556	14:03:24	CL_C.Q，第539行：	CheckWhetherCanWalk LtColor:D6BE94
+556	14:03:24	CL_C.Q，第540行：	CheckWhetherCanWalk leftPos:0 268 302
+556	14:03:25	CL_C.Q，第613行：	CheckNotRoad, RtColor:104984
+556	14:03:25	CL_C.Q，第544行：	CheckWhetherCanWalk lefToptPos:1
+556	14:03:25	CL_C.Q，第545行：	CheckWhetherCanWalk LtColor:104984 268 287
+556	14:03:25	CL_C.Q，第613行：	CheckNotRoad, RtColor:104984
+556	14:03:25	CL_C.Q，第550行：	CheckWhetherCanWalk lefDwontPos:1
+556	14:03:25	CL_C.Q，第551行：	CheckWhetherCanWalk LtColor:104984 268 317
+556	14:03:25	CL_C.Q，第613行：	CheckNotRoad, RtColor:D6BE94
+556	14:03:25	CL_C.Q，第539行：	CheckWhetherCanWalk LtColor:D6BE94
+556	14:03:25	CL_C.Q，第540行：	CheckWhetherCanWalk leftPos:0 253 302
+556	14:03:25	CL_C.Q，第613行：	CheckNotRoad, RtColor:104984
+556	14:03:25	CL_C.Q，第544行：	CheckWhetherCanWalk lefToptPos:1
+556	14:03:25	CL_C.Q，第545行：	CheckWhetherCanWalk LtColor:104984 253 287
+556	14:03:25	CL_C.Q，第613行：	CheckNotRoad, RtColor:104984
+556	14:03:25	CL_C.Q，第550行：	CheckWhetherCanWalk lefDwontPos:1
+556	14:03:25	CL_C.Q，第551行：	CheckWhetherCanWalk LtColor:104984 253 317
+556	14:03:25	CL_C.Q，第613行：	CheckNotRoad, RtColor:D6BE94
+556	14:03:25	CL_C.Q，第539行：	CheckWhetherCanWalk LtColor:D6BE94
+556	14:03:25	CL_C.Q，第540行：	CheckWhetherCanWalk leftPos:0 238 302
+556	14:03:26	CL_C.Q，第613行：	CheckNotRoad, RtColor:104984
+556	14:03:26	CL_C.Q，第544行：	CheckWhetherCanWalk lefToptPos:1
+556	14:03:26	CL_C.Q，第545行：	CheckWhetherCanWalk LtColor:104984 238 287
+556	14:03:26	CL_C.Q，第613行：	CheckNotRoad, RtColor:104984
+556	14:03:26	CL_C.Q，第550行：	CheckWhetherCanWalk lefDwontPos:1
+556	14:03:26	CL_C.Q，第551行：	CheckWhetherCanWalk LtColor:104984 238 317
+556	14:03:26	CL_C.Q，第613行：	CheckNotRoad, RtColor:D6BE94
+556	14:03:26	CL_C.Q，第539行：	CheckWhetherCanWalk LtColor:D6BE94
+556	14:03:26	CL_C.Q，第540行：	CheckWhetherCanWalk leftPos:0 223 302
+556	14:03:26		已停止日志记录
