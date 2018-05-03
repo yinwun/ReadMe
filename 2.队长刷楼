@@ -1,0 +1,246 @@
+clear
+set 脚本延时, 50
+label 开始
+ifmap 154,到达1楼
+ifmap 155,等待2楼
+ifmap 156,到达3楼
+'ifmap 157,等待4楼
+'ifmap 147,等待5楼
+
+delmail all
+
+label 散队伍
+chpet 1,1
+'delay 500
+run P_换券.xzs
+delay 100
+run P_换矿2.xzs
+delay 100
+run P_换矿1.xzs
+delay 100
+run P_换贝壳.xzs
+delay 100
+run P_存物件.xzs
+delay 100
+run P_检查魅力.xzs
+delay 500
+run P_检查忠诚.xzs
+delay 500
+run P_补给.xzs
+delay 500
+run 3_地面_集合_队长.xzs
+delay 500
+run P_设置战斗.xzs
+delay 100
+run P_1F_战斗设置.xzs
+delay 500
+set 首次延迟,0
+set 攻击延迟,0
+delay 500
+check 队员数,=,5,+2
+goto -2
+print 人齐
+delay 200
+
+label 去打魔王
+run 3_地面_开打魔王.xzs
+delay 100
+say hi
+delay 100
+
+label 等待战斗
+check 坐标,=,89,51,开始
+delay 100
+delmail all
+check 游戏状态,=,战斗,等待1楼
+goto 等待战斗
+
+label 等待1楼
+call 等待1楼战斗检查
+delay 500
+waitmap 154,3,等待1楼
+say 到达1楼
+chpet 1,1
+delay 500
+call 飞了
+call 检测邮件
+delay 100
+walkpos 1,34 
+w G
+pause
+say run
+
+
+label 到达1楼
+chpet 1,1
+run 4_1F_检查坐标.xzs
+delay 100
+run P_设置战斗.xzs
+delay 100
+set 首次延迟,20
+set 攻击延迟,15
+delay 100
+run P_通用集合队长.xzs
+delay 100
+walkpos 0,11
+pause
+say flight
+
+label 检测回合
+call 飞了
+call 检测邮件
+delay 100
+delay 200
+iffight !=,0,+2
+delay 100
+iffight >,3, +2
+goto 检测回合
+set 首次延迟,0.1
+set 攻击延迟,0.1
+
+label 等待2楼
+delay 100
+call 飞了
+delay 100
+call 检测邮件
+waitmap 155,1,等待2楼
+delay 500
+call 检测邮件
+delay 100
+call 等待解散
+delay 100
+run P_2F_战斗设置.xzs
+delay 100
+chpet 1,1
+run P_设置战斗.xzs
+delay 100
+run 4_2F_补给.xzs
+delay 100
+run 4_2F_集合.xzs
+delay 100
+run P_通用集合队长.xzs
+delay 100
+run 4_2F_找混世魔王.xzs
+delay 100
+run P_验证码.xzs
+
+label 等待2F战斗
+call 飞了
+call 检测邮件
+delay 100
+check 游戏状态,=,战斗,等待3楼
+goto 等待2F战斗
+
+label 等待3楼
+call 飞了
+call 检测邮件
+call 等待3楼战斗检查
+waitmap 156,1,等待3楼 'die and stay
+delay 500
+call 检测邮件
+delay 100
+run P_设置战斗.xzs
+delay 100
+run 5_3F_队长过渡.xzs
+delay 100
+
+call 等待解散
+chpet 1,1
+run P_设置战斗.xzs
+
+label 到达3楼
+delay 100
+run P_3F_战斗设置.xzs
+delay 100
+run 5_3F_集合.xzs
+delay 100
+run 5_3F_补给.xzs
+delay 100
+run 5_3F_准备.xzs
+delay 100
+run P_通用集合队长.xzs
+delay 100
+run 5_4F_去冥王.xzs
+delay 100
+run P_验证码.xzs
+
+label 等待3F战斗
+call 飞了
+call 检测邮件
+delay 100
+check 游戏状态,=,战斗,等待4楼
+goto 等待3F战斗
+
+label 等待4楼
+call 等待4楼战斗检查
+call 飞了
+call 检测邮件
+delay 500
+waitmap 157,3,等待4楼
+chpet 1,1
+goto 开始
+
+label 等待4楼战斗检查
+call 飞了
+call 检测邮件
+check 游戏状态,!=,战斗,+2
+goto 等待4楼
+ifmap 156,开始
+return
+
+
+label 等待3楼战斗检查
+call 飞了
+check 游戏状态,!=,战斗,+2
+goto 等待3楼
+ifmap 155,开始
+return
+
+label 等待1楼战斗检查
+check 游戏状态,!=,战斗,+2
+goto 等待1楼
+ifmap 2000,开始
+return
+
+
+label 飞了
+ifmap 2000, 发邮件
+return
+
+label 发邮件
+run 邮件.xzs
+goto 开始
+end
+
+label 检测邮件
+check 邮件,like,飞了,有人飞了
+return
+
+label 有人飞了
+delmail all
+call 等待解散
+run P_回村.xzs
+goto 开始
+end
+
+label 等待解散
+set 首次延迟,0
+set 攻击延迟,0
+join 0
+delay 500
+check 在队伍中,是,等待解散
+return 
+
+label 检查队员
+delay 1000
+check npc,沙拉曼达,玩家,存在,+2
+goto 散队伍
+check npc,文迪妮,玩家,存在,+2
+goto 散队伍
+check npc,西鲁芙,玩家,存在,+2
+goto 散队伍
+check npc,Eris,玩家,存在,+2
+goto 散队伍
+check npc,RedCap,玩家,存在,+2
+goto 散队伍
+return
