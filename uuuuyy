@@ -279,7 +279,7 @@ call 检测邮件
 delay 500
 waitmap xxxx,30,等待5楼
 call 等待解散
-
+goto 开始
 end
 
 label 等待6楼战斗检查
